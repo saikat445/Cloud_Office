@@ -1,0 +1,36 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+<div class="column">
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">P.O. Number</th>
+      <th scope="col">Date</th>
+      <th scope="col">Supplier Name</th>
+      <th scope="col">Amount</th>
+        <th scope="col">Description</th>
+    </tr>
+  </thead>
+    {% for prod in accounts_data %}
+  <tbody>
+    <tr>
+      <th scope="row">{{prod.po_no}}</th>
+      <td>{{prod.date}}</td>
+      <td>{{prod.suppliername}}</td>
+      <td>{{prod.amount}}</td>
+      <td>{{prod.description}}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+    <br>
+    <div>
+        <a> Download Data From the Below Link</a>
+    <li>
+        <a href="{% url 'market_sample_download' %}">Market Data Download</a>
+    </li>
+    </div>
+
+</div>
+{% endblock %}

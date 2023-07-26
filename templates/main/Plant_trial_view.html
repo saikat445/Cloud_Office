@@ -1,0 +1,38 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+<div class="column">
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Set No</th>
+      <th scope="col">Trial date</th>
+      <th scope="col">Battery Type</th>
+      <th scope="col">Trial Location</th>
+        <th scope="col">Description</th>
+        <th scope="col">Receive date</th>
+    </tr>
+  </thead>
+    {% for prod in trial_data %}
+  <tbody>
+    <tr>
+      <th scope="row">{{prod.setno}}</th>
+      <td>{{prod.trialdate}}</td>
+      <td>{{prod.battery_type}}</td>
+      <td>{{prod.trial_location}}</td>
+      <td>{{prod.description}}</td>
+        <td>{{prod.receivedate}}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+    <br>
+    <div>
+        <a> Download Data From the Below Link</a>
+    <li>
+        <a href="{% url 'Trial_data_download' %}">Plant trial data</a>
+    </li>
+    </div>
+
+</div>
+{% endblock %}

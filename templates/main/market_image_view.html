@@ -1,0 +1,23 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+
+<body class="container " style="padding-top: 5%;">
+    <div class="row">
+        {% for x in image_market %}
+        <div class="col-md-4">
+          <div class="thumbnail">
+              <img src="{{x.market_sample_img.url}}"alt="Lights" style="width:100%" >
+              <div class="caption">
+                <p>{{ x.name }}</p>
+                <p>{{ x.Mfg }}</p>
+                  <p>{{ x.receivedate }}</p>
+              </div>
+            </a>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+  </body>
+
+{% endblock %}

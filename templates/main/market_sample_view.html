@@ -1,0 +1,40 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+<div class="column">
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Battery type</th>
+      <th scope="col">Name</th>
+      <th scope="col">Description</th>
+      <th scope="col">Mfg date</th>
+        <th scope="col">Price</th>
+        <th scope="col">Shelf life</th>
+        <th scope="col">Receive date</th>
+    </tr>
+  </thead>
+    {% for prod in market_sample_data %}
+  <tbody>
+    <tr>
+      <th scope="row">{{prod.batterytype}}</th>
+      <td>{{prod.name}}</td>
+      <td>{{prod.description}}</td>
+      <td>{{prod.mfg}}</td>
+      <td>Rs.{{prod.price}}.00/-</td>
+        <td>{{prod.shelflife}}</td>
+        <td>{{prod.receivedate}}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+    <br>
+    <div>
+        <a> Download Data From the Below Link</a>
+    <li>
+        <a href="{% url 'market_sample_download' %}">Market Data Download</a>
+    </li>
+    </div>
+
+</div>
+{% endblock %}

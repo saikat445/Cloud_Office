@@ -1,0 +1,38 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+<div class="column">
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Received no.</th>
+      <th scope="col">Sample name</th>
+      <th scope="col">Description</th>
+      <th scope="col">Mfg date</th>
+        <th scope="col">Status</th>
+        <th scope="col">Receive date</th>
+    </tr>
+  </thead>
+    {% for prod in market_sample_data %}
+  <tbody>
+    <tr>
+      <th scope="row">{{prod.receivedno}}</th>
+      <td>{{prod.samplename}}</td>
+      <td>{{prod.description}}</td>
+      <td>{{prod.mfg}}</td>
+      <td>{{prod.teststatus}}</td>
+        <td>{{prod.receivedate}}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+    <br>
+    <div>
+        <a> Download Data From the Below Link</a>
+    <li>
+        <a href="{% url 'market_sample_download' %}">Market Data Download</a>
+    </li>
+    </div>
+
+</div>
+{% endblock %}
